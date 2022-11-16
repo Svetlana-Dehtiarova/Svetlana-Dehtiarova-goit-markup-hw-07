@@ -81,16 +81,16 @@ a {
 .site-header {
   border-bottom: 1px solid var(--header-border-color);
 }
-.contacts-icon {
+.contacts-list__icon {
   margin-right: 10px;
   fill: currentColor;
 }
 
-.item-two {
+.contacts-list__item {
   padding-top: 32px;
   padding-bottom: 32px;
 }
-.item-two:first-child {
+.contacts-list__item:first-child {
   margin-right: 30px;
 }
 
@@ -102,7 +102,7 @@ a {
   font-size: 26px;
   line-height: 1.19;
 }
-.logo-accent {
+.logo--accent {
   color: var(--accent-color);
 }
 /*Навігація по сайту*/
@@ -111,7 +111,7 @@ a {
   align-items: center;
 }
 
-.site-nav .link {
+.main-nav__link {
   display: block;
   padding-top: 32px;
   padding-bottom: 32px;
@@ -124,24 +124,24 @@ a {
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
 }
-.site-nav {
+.main-nav__list {
   display: flex;
   margin-left: 93px;
 }
-.site-nav .item-one {
+.main-nav__item {
   margin-right: 50px;
 }
-.site-nav .item-one:last-child {
+.main-nav__item:last-child {
   margin-right: 0px;
 }
 
-.site-nav .link:hover,
-.site-nav .link:focus,
-.site-nav .link.current {
+.main-nav__link:hover,
+.main-nav__link:focus,
+.main-nav__link--current {
   color: var(--accent-color);
 }
 /*----Підкреслення---*/
-.link::after {
+.main-nav__link::after {
   content: ' ';
   display: block;
   width: 100%;
@@ -152,15 +152,14 @@ a {
   bottom: -1px;
   opacity: 0;
 }
-.link::after {
+.main-nav__link::after {
   opacity: 0;
 }
-.link.current::after {
+.main-nav__link--current::after {
   opacity: 1;
 }
 /*-----Контакти------*/
-.contacts.list .phone,
-.contacts.list .e-mail {
+.contacts-list__link {
   color: var(--primary-text-color);
   letter-spacing: 0.02em;
   font-weight: 500;
@@ -169,20 +168,16 @@ a {
   align-items: center;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.contacts.list .phone:focus,
-.contacts.list .phone:hover,
-.contacts.list .e-mail:focus,
-.contacts.list .e-mail:hover {
+.contacts-list__link:focus,
+.contacts-list__link:hover {
   color: var(--accent-color);
 }
 
-.contacts.list {
+.contacts-list {
   display: flex;
   margin-left: auto;
 }
-.contacts.list .item-one + .item-one {
-  margin-left: 50px;
-}
+
 /*Герой*/
 .hero {
   background-color: var(--hero-background-color);
@@ -198,7 +193,7 @@ a {
   background-position: center;
   background-size: cover;
 }
-.hero-title {
+.hero__title {
   color: var(--main-lite-color);
   letter-spacing: 0.06em;
   font-weight: 900;
@@ -430,10 +425,13 @@ a {
 /*Головна сторінка*/
 
 .section-title,
-.section-subtitle {
+.team__title,
+.benefits__subtitle {
   color: var(--title-text-color);
 }
-.section-title {
+.section-title,
+.team__title,
+.benefits__title {
   font-weight: 700;
   font-size: 36px;
   line-height: 1.17;
@@ -470,7 +468,7 @@ a {
   right: 50%;
   transform: translate(50%);
 }
-.section-subtitle.first {
+.benefits__subtitle {
   font-size: 14px;
   line-height: 1.14;
   text-transform: uppercase;
@@ -483,21 +481,21 @@ a {
   text-align: center;
 }
 /*-----Переваги-----*/
-.features {
+.benefits {
   padding-bottom: 0px;
 }
-.feature-list {
+.benefits__list {
   display: flex;
   gap: 30px;
 }
-.advantage {
+.benefits__item {
   width: 270px;
 }
-.advantage:not(:last-child()) {
+.benefits__item:not(:last-child()) {
   margin-right: 30px;
 }
 
-.advantage-link {
+.benefits__inner {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -509,51 +507,57 @@ a {
 }
 
 /*Картки співробітників*/
-.comand-section {
+.team {
   background-color: var(--second-background-color);
 }
-.our-comand {
+.team__list {
   display: flex;
 }
-.our-comand .item + .item {
+.team__item {
+  flex-basis: calc(33.3333333333% - 30px);
+}
+.team__item:not(:first-child) {
   margin-left: 30px;
 }
-.our-comand .item {
+.team__item {
   background-color: var(--main-lite-color);
   border-radius: 0px 0px 4px 4px;
 }
-.card {
+.team-card {
+  color: var(--title-text-color);
+  text-align: center;
   padding: 30px 24px;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
 }
-.social {
+.social-links {
   margin-top: 16px;
   align-items: center;
   display: flex;
   justify-content: center;
 }
-.social-link:not(:last-child) {
+.social-links__item:not(:last-child) {
   margin-right: 10px;
 }
-.social-item {
+
+.social-links__link {
   display: flex;
   height: 44px;
   width: 44px;
   border-radius: 50%;
-  color: var(--social-text);
+  color: #afb1b8;
   align-items: center;
   justify-content: center;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-.social-item:hover,
-.social-item:focus {
-  color: var(--main-lite-color);
-  background-color: var(--accent-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.social-icon {
+.social-links__link:hover,
+.social-links__link:focus {
+  color: #FFFFFF;
+  background-color: #2196F3;
+}
+
+.social-links__icon {
   --color1: currentColor;
 }
 /*---Постійні клієнти----*/
@@ -641,7 +645,7 @@ block:hover {
   border: 1px solid var(--border-color);
   border-top: none;
 }
-.visually-hidden {
+.benefits__title--hidden {
   position: absolute;
   white-space: nowrap;
   width: 1px;
@@ -714,7 +718,7 @@ block:hover {
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
 }
-.primary-button {
+.hero__button {
   display: inline-block;
   color: var(--main-lite-color);
   background-color: var(--accent-color);
@@ -749,10 +753,11 @@ block:hover {
   margin-left: 8px;
 }
 /*Абзаци*/
-.feature-list .text {
+.benefits__text {
   line-height: 1.71;
 }
-.specialty {
+.team-card__specialty {
+  color: var(--primary-text-color);
   font-size: 16px;
   line-height: 1.19;
   text-align: center;
@@ -808,10 +813,9 @@ block:hover {
 .e-mail.second:focus {
   color: var(--accent-color);
 }
-.footer-social-links {
+.site-footer__social-links {
   margin-left: 70px;
 }
-
 .footer-title {
   font-weight: 700;
   line-height: 1.14;
@@ -819,12 +823,12 @@ block:hover {
   color: var(--main-lite-color);
 }
 
-.footer-list social {
+.site-footer__social-list {
   margin-top: 20px;
 }
 
-.footer-social-link {
-  color: var(--main-lite-color);
+.site-footer__social-link {
+  color: #FFFFFF;
   background-color: rgba(255, 255, 255, 0.1);
 }
 .subscribe__button {
