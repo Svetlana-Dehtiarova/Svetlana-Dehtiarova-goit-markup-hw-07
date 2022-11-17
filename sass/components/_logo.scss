@@ -4,8 +4,8 @@
     font-weight: 700;
     font-size: 26px;
     line-height: 1.19;
+    &--accent {
+            color: $accent-color;
+        }
 }
 
-.logo--accent {
-    color: $accent-color;
-}
