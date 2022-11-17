@@ -1,5 +1,5 @@
 .main-nav__link {
-    &::after {
+  &::after {
     content: ' ';
     display: block;
     width: 100%;
@@ -9,13 +9,12 @@
     left: 0;
     bottom: -1px;
     opacity: 0;
-    }
+  }
 }
 
 .main-nav__link--current {
-    color: $accent-color;
-    &::after {
+  color: $accent-color;
+  &::after {
     opacity: 1;
-    }
+  }
 }
-
